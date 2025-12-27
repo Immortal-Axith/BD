@@ -4,7 +4,7 @@ const Order = db.order;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.sale_date) {
+  if (!req.body.order_date) {
     res.status(400).send({
       message: "Connect can not be empty",
     });
@@ -94,7 +94,7 @@ exports.delete = (req, res) => {
   .then(nam =>{
     if (num == 1){
       res.send({
-        messege: "Sales was deleted successfully!"
+        messege: "orders was deleted successfully!"
       });
     }else {
       res.send({
@@ -129,8 +129,8 @@ exports.deleteAll = (req, res) => {
 
 exports.orderWithDish = (req, res) => {
   const id = req.params.id;
-  db.sequelize.query(`SELECT s.*, p.name as product_name, pis.quanity FROM sales s 
-   JOIN prod_is_on_sales pis ON s.id = pis.id_sale  JOIN products p ON pis.id_product = p.id WHERE s.id = ${id}`, {
+  db.sequelize.query(`SELECT o.*, pl.*  FROM orders o 
+   JOIN price_lists pl ON o.id = pl.id  WHERE o.id = ${id}`, {
     type: QueryTypes.SELECT,
   })
     .then(data => {

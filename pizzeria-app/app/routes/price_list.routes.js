@@ -1,6 +1,6 @@
 const { universal } = require("../models/index.js");
 module.exports = app => {
-    const universal = require("../controllers/prise_list.controller.js");
+    const universal = require("../controllers/price_list.controller.js");
     
     var router = require("express").Router();
 
@@ -180,6 +180,6 @@ module.exports = app => {
      */
     router.delete("/", universal.deleteAll);
 
-    app.use("/api/prise_list", router);
-    console.log('router for /api/prise_list initialized');
+    app.use("/api/price_list", router);
+    console.log('router for /api/price_list initialized');
 }

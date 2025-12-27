@@ -10,12 +10,12 @@ exports.create = (req, res) => {
     });
     return;
   }
-  const dish_group = {
+  const dishGroup = {
     name: req.body.name,
     id_parent_group: req.body.id_parent_group,
     description: req.body.description,
   };
-  Dish_group.create(dish_group)
+  Dish_group.create(dishGroup)
     .then(data => {
       res.send(data);
     })

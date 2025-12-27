@@ -4,7 +4,7 @@ const Price_list_item = db.price_list_item;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.id_product) {
+  if (!req.body.price) {
     res.status(400).send({
       message: "Connect can not be empty",
     });
@@ -129,7 +129,7 @@ exports.deleteAll = (req, res) => {
 
 exports.ProdandPrice = (req, res) => {
   const id = req.params.id;
-  db.sequelize.query(`SELECT p.name, pilp.price FROM product_in_list_prices pilp JOIN products p  ON p.id = pilp.id_product WHERE p.id = ${id}`,{
+  db.sequelize.query(`SELECT d.name, pli.price FROM price_list_items pli JOIN dishes d  ON d.id = pli.id_dish WHERE d.id = ${id}`,{
     type: QueryTypes.SELECT,
   })
     .then(data => {
@@ -144,7 +144,7 @@ exports.ProdandPrice = (req, res) => {
 
 exports.priceDATA = (req, res) => {
   const id = req.params.id;
-  db.sequelize.query(`SELECT pl.effective_date, pilp.price FROM product_in_list_prices pilp JOIN price_lists pl  ON pl.id = pilp.id WHERE pl.id = ${id}`,{
+  db.sequelize.query(`SELECT pl.effective_date, pli.price FROM price_list_items pli JOIN price_lists pl  ON pl.id = pli.id WHERE pl.id = ${id}`,{
     type: QueryTypes.SELECT,
   })
     .then(data => {

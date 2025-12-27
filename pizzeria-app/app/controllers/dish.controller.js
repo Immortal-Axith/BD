@@ -132,7 +132,7 @@ exports.getdishsgroup = (req, res) => {
   const id = req.params.id;
   db.sequelize
     .query(
-      "SELECT pg.* FROM dish_group pg LEFT JOIN dishs p ON pg.id = p.id_dish_group WHERE p.id = :id",
+      "SELECT dg.name  FROM dish_groups dg LEFT JOIN dishes d ON dg.id = d.id_dish_group WHERE d.id = :id",
       {
         model: Dish,
         mapToModels: true,

@@ -1,8 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
-  const Prise_list = sequelize.define("prise_list", {
+  const Price_list = sequelize.define("price_list", {
     effective_date: {
       type: Sequelize.DATE
     },
   });
-  return Prise_list ;
+  return Price_list ;
 };

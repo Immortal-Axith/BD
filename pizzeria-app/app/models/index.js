@@ -26,7 +26,7 @@ db.sequelize = sequelize;
 db.dish = require("./dish.model.js")(sequelize, Sequelize);
 db.dish_group = require("./dish_group.model.js")(sequelize, Sequelize);
 db.order = require("./order.model.js")(sequelize, Sequelize);
-db.prise_list = require("./prise_list.model.js")(sequelize, Sequelize);
+db.price_list = require("./price_list.model.js")(sequelize, Sequelize);
 db.order_item = require("./order_item.model.js")(sequelize, Sequelize);
 db.price_list_item = require("./price_list_item.model.js")(sequelize, Sequelize);
 

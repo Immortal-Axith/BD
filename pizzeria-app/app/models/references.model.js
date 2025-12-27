@@ -7,10 +7,10 @@ module.exports = (db) => {
   
   // Связи price_list_item
     db.price_list_item.belongsTo(db.dish,{ foreignKey: "id_dish"});
-    db.price_list_item.belongsTo(db.prise_list,{foreignKey: "id_price_list"} );
+    db.price_list_item.belongsTo(db.price_list,{foreignKey: "id_price_list"} );
 
   // Связь order -> prise_list
-  db.order.belongsTo(db.prise_list,{ foreignKey: "id_price_list"});
+  db.order.belongsTo(db.price_list,{ foreignKey: "id_price_list"});
 
   // Связи order_item  
   db.order_item.belongsTo(db.order,{ foreignKey: "id_order"});

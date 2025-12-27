@@ -1,10 +1,10 @@
 const { where } = require("sequelize");
 const db = require("../models");
-const PriceList = db.prise_list;
+const PriceList = db.price_list;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.name) {
+  if (!req.body.effective_date) {
     res.status(400).send({
       message: "Connect can not be empty",
     });
